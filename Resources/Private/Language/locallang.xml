@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for frontend belonging to extension 'zefueg_dealer'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="region_show_dealers">Show Dealers</label>
+		</languageKey>
+		<languageKey index="de">EXT:zefueg_dealer/Resources/Private/Language/de.locallang.xml</languageKey>
+	</data>
+</T3locallang>

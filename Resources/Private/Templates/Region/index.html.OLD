@@ -1,0 +1,13 @@
+<div class="tx-zefuegdealer-region">
+	<ul>
+		<f:for each="{regions}" as="region">
+			<f:if condition="{region.dealers}">
+				<f:then>
+					<li>
+						<f:link.action action="show" arguments="{region : region}" title="">{region.name} - ({region.dealerCount})</f:link.action>
+					</li>
+				</f:then>
+			</f:if>
+		</f:for>
+	</ul>
+</div>

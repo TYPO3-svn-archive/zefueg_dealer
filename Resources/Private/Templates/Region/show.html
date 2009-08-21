@@ -1,0 +1,55 @@
+<div class="tx-zefuegdealer-region">
+	<p class="tx-zefuegdealer-region-show-name">{region.name}</p>
+	<div class="tx-zefuegdealer-list-container">
+		<f:if condition="{region.dealers}">
+			<f:then>
+				<table class="tx-zefuegdealer-region-table">
+					<tbody>
+					<f:for each="{dealers}" as="dealer">
+						<tr>
+							<td colspan="2" class="tx-zefuegdealer-region-show-dealer-name">
+								{dealer.name}
+							</td>
+						</tr>
+						<tr>
+							<td class="tx-zefuegdealer-region-show-dealer-left">
+								Inh. {dealer.owner}
+							</td>
+							<td class="tx-zefuegdealer-region-show-dealer-right">
+								Tel: {dealer.telephone}
+							</td>
+						</tr>
+						<tr>
+							<td class="tx-zefuegdealer-region-show-dealer-left">
+								{dealer.street}
+							</td>
+							<td class="tx-zefuegdealer-region-show-dealer-right">
+								Fax: {dealer.facsimile}
+							</td>
+						</tr>
+						<tr>
+							<td class="tx-zefuegdealer-region-show-dealer-left">
+								{dealer.zip} {dealer.city}
+							</td>
+							<td class="tx-zefuegdealer-region-show-dealer-right">
+								<f:link.email email="{dealer.email}" />
+							</td>
+						</tr>
+						<tr>
+							<td class="tx-zefuegdealer-region-show-dealer-left">
+								&nbsp;
+							</td>
+							<td class="tx-zefuegdealer-region-show-dealer-right tx-zefuegdealer-region-show-dealer-last">
+								<f:link.external uri="http://{dealer.homepage}" target="_blank">{dealer.homepage}</f:link.external>
+							</td>
+						</tr>
+					</f:for>
+					</tbody>
+				</table>
+			</f:then>
+			<f:else>
+				<p><f:translate key="no_dealers" /></p>
+			</f:else>
+		</f:if>
+	</div>
+</div>

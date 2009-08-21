@@ -1,0 +1,17 @@
+<div class="tx-zefuegdealer-region">
+	<table>
+		<f:for each="{result}" as="part">
+			<tr>
+				<f:for each="{part}" as="region">
+					<f:if condition="{region.dealers}">
+						<f:then>
+							<td style="width: 14%;">
+								<f:link.action action="show" arguments="{region : region}" title="{region.dealerCount} <f:translate key='region_show_dealers' />">{region.name}</f:link.action>
+							</td>
+						</f:then>
+					</f:if>
+				</f:for>
+			</tr>
+		</f:for>
+	</table>
+</div>

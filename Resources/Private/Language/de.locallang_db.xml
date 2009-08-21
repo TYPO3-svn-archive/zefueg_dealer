@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallangExt>
+	<data type="array">
+                <languageKey index="de" type="array">
+			<label index="tx_zefuegdealer_domain_model_region">Region</label>
+			<label index="tx_zefuegdealer_domain_model_region.name">Name</label>
+			<label index="tx_zefuegdealer_domain_model_dealer">Händler</label>
+			<label index="tx_zefuegdealer_domain_model_dealer.owner">Inhaber</label>
+			<label index="tx_zefuegdealer_domain_model_dealer.street">Straße</label>
+			<label index="tx_zefuegdealer_domain_model_dealer.zip">PLZ</label>
+			<label index="tx_zefuegdealer_domain_model_dealer.city">Ort</label>
+			<label index="tx_zefuegdealer_domain_model_dealer.telephone">Telefon</label>
+			<label index="tx_zefuegdealer_domain_model_dealer.facsimile">Telefax</label>
+			<label index="tx_zefuegdealer_domain_model_dealer.email">EMail</label>
+			<label index="tx_zefuegdealer_domain_model_dealer.homepage">Homepage</label>
+                </languageKey>
+	</data>
+</T3locallangExt>

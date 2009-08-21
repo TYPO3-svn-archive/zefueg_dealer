@@ -1,0 +1,8 @@
+plugin.tx_zefuegdealer {
+	controllers {
+		Region {
+			stylesheet = EXT:Resources/Public/Stylesheets/ZefuegDealerRegion.css
+		}
+	}
+}
+
