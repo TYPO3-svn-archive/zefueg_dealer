@@ -59,6 +59,14 @@ class Tx_ZefuegDealer_Controller_RegionController extends Tx_Extbase_MVC_Control
 	 * @return string The rendered view of a single region
 	 */
 	public function showAction(Tx_ZefuegDealer_Domain_Model_Region $region) {
+		preg_match('/<title>(.*)<\/title>/', $GLOBALS['TSFE']->content, $matches);
+		$matches = explode('|', $matches[1]);
+		$final = array();
+		$final[0] = trim($matches[0]);
+		$final[1] = trim($matches[1]);
+		$final[2] = $region->getName();
+		$title = implode(' | ', $final);
+		$GLOBALS['TSFE']->content = preg_replace('/<title>.*<\/title>/', '<title>' . $title . '</title>', $GLOBALS['TSFE']->content);
 		$this->setStylesheet();
 		$this->view->assign('region', $region);
 		$this->view->assign('dealers', $this->dealerRepository->getOrderedByRegion($region->getUid()));
