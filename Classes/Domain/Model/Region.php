@@ -25,9 +25,9 @@ class Tx_ZefuegDealer_Domain_Model_Region extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * The dealers contained in this region
 	 *
-	 * @var array
+	 * @var Tx_Extbase_Persistence_ObjectStorage
 	 */
-	protected $dealers = array();
+	protected $dealers;
 
 	/**
 	 * Constructs this region
@@ -35,6 +35,7 @@ class Tx_ZefuegDealer_Domain_Model_Region extends Tx_Extbase_DomainObject_Abstra
 	 * @return
 	 */
 	public function __construct() {
+		$this->dealers = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -82,7 +83,7 @@ class Tx_ZefuegDealer_Domain_Model_Region extends Tx_Extbase_DomainObject_Abstra
 	 * @return void
 	 */
 	public function addDealer(Tx_ZefuegDealer_Domain_Model_Dealer $dealer) {
-		$this->dealers[] = $dealer;
+		$this->dealers->attach($dealer);
 	}
 
 	/**
@@ -92,17 +93,7 @@ class Tx_ZefuegDealer_Domain_Model_Region extends Tx_Extbase_DomainObject_Abstra
 	 * @return void
 	 */
 	public function removeDealer(Tx_ZefuegDealer_Domain_Model_Dealer $dealerToRemove) {
-
-		foreach ($this->dealers as $key => $dealer) {
-
-			if ($dealer === $dealerToRemove) {
-				unset($this->dealers[$key]);
-				reset($this->dealers);
-				return;
-			}
-
-		}
-
+		$this->dealers->detach($dealerToRemove);
 	}
 
 	/**
@@ -111,60 +102,16 @@ class Tx_ZefuegDealer_Domain_Model_Region extends Tx_Extbase_DomainObject_Abstra
 	 * @return void
 	 */
 	public function removeAllDealers() {
-		$this->dealers = array();
+		$this->dealers = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
 	 * Returns all dealers in this region
 	 *
-	 * @return array of Tx_ZefuegDealer_Domain_Model_Dealer
+	 * @return Tx_Extbase_Persistence_ObjectStorage
 	 */
 	public function getDealers() {
-		return $this->dealers;
-	}
-
-	/**
-	 * Returns single dealer by its identifier
-	 *
-	 * @param int $uid
-	 * @return Tx_ZefuegDealer_Domain_Model_Dealer or NULL if not found
-	 */
-	public function findDealerByUid($uid) {
-
-		if (array_key_exists($uid, $this->dealers)) {
-			return $this->dealers[$uid];
-		} else {
-			return NULL;
-		}
-
-	}
-
-	/**
-	 * Returns single dealer by company
-	 *
-	 * @param string $dealerCompany
-	 * @return Tx_ZefuegDealer_Domain_Model_Dealer or NULL if not found
-	 */
-	public function findDealerByCompany($dealerCompany) {
-
-		foreach ($this->dealers as $dealer) {
-
-			if (strtolower($dealer->getCompany()) === strtolower($dealerCompany)) {
-				return $dealer;
-			}
-
-		}
-
-		return NULL;
-	}
-
-	/**
-	 * Returns the number of dealers in this region
-	 *
-	 * @return int Number of dealers
-	 */
-	public function getDealerCount() {
-		return count($this->dealers);
+		return clone $this->dealers;
 	}
 
 	/**
