@@ -46,7 +46,6 @@ $GLOBALS['TCA']['tx_zefuegdealer_domain_model_region'] = array(
 			'label' => 'LLL:EXT:zefueg_dealer/Resources/Private/Language/locallang_db.xml:tx_zefuegdealer_domain_model_dealer',
 			'config' => array(
 				'type' => 'inline',
-				'foreign_class' => 'Tx_ZefuegDealer_Domain_Model_Dealer',
 				'foreign_table' => 'tx_zefuegdealer_domain_model_dealer',
 				'appearance' => array(
 					'collapseAll' => TRUE,

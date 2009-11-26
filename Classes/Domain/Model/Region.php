@@ -25,7 +25,9 @@ class Tx_ZefuegDealer_Domain_Model_Region extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * The dealers contained in this region
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_ZefuegDealer_Domain_Model_Dealer>
+	 * @lazy
+	 * @cascade remove
 	 */
 	protected $dealers;
 
